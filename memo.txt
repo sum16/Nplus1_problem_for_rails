@@ -1,0 +1,5 @@
+Completed 200 OK in 53368ms (Views: 7793.5ms | ActiveRecord: 2788.3ms | Allocations: 4510480)
+初期段階では表示まで53秒
+
+
+バッチ処理編で勉強したベンチマーク等を記述する
