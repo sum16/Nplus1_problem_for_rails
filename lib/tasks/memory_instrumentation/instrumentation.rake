@@ -7,9 +7,10 @@ namespace :profiles do
 
     # /model配下にモジュールを作成している
     # メモリの計測
-    Development::UsedMemory.instance.write('start batch')
-    Development::UsedMemory.instance.write('end batch')
-    Development::UsedMemory.instance.puts_all
+    arr = Development::UsedMemory.new.write('start batch')
+    arr2 = Development::UsedMemory.new.write('end batch')
+    Development::UsedMemory.new.puts_all(arr)
+    Development::UsedMemory.new.puts_all(arr2)
 
 
     # 実行速度の計測
@@ -27,7 +28,6 @@ namespace :profiles do
             puts tag.name
           end
         end
-
       end
     end
 
