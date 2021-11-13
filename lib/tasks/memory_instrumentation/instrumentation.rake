@@ -19,7 +19,7 @@ namespace :profiles do
         # 速度の対象を設定
         # 今回のn + 1問題を再現
         @user = User.find(1)
-        @articles = @user.articles
+        @articles = @user.articles.preload(:tags)
 
         @articles.each do |article| 
           puts article.title
