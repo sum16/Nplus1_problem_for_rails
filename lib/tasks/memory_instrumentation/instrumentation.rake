@@ -14,20 +14,21 @@ namespace :profiles do
 
 
     # 実行速度の計測
+    # Benchmark.bm 10 do |r|
+    #   r.report 'profile' do
+    #     # 速度の対象を設定
+    #     # 今回のn + 1問題を再現
+    #   @user = User.find(1)
+    #   @user.skills.pluck(:skill_category)
+    #   end
+    # end
+
     Benchmark.bm 10 do |r|
       r.report 'profile' do
         # 速度の対象を設定
         # 今回のn + 1問題を再現
-        @user = User.find(1)
-        @articles = @user.articles.preload(:tags)
-
-        @articles.each do |article| 
-          puts article.title
-
-          article.tags.each do |tag|
-            puts tag.name
-          end
-        end
+      @user = User.find(1)
+      @user.skills.map(&:skill_category)
       end
     end
 
